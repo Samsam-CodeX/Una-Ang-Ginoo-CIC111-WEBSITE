@@ -149,8 +149,8 @@
     </div>
 
     <script>
-        const username = 'andrew';
-        const password = '12345';
+        const username = 'user';
+        const password = '123';
 
         const inputUsername = document.querySelector('.username');
         const inputPassword = document.querySelector('.password');
@@ -173,18 +173,22 @@
         function login(){
             if(inputUsername.value === username && inputPassword.value === password){
                 errorCode.textContent = 'Logging in...'
-                errorCode.style.color = 'green'
+                errorCode.style.color = 'green';
                 setTimeout(() => {
                     document.location.href = 'main.html';
                 }, 2000);
             } else if (inputUsername.value === ''){
                 errorCode.textContent = 'Please provide username.';
+                errorCode.style.color = 'red';
             } else if (inputPassword.value === ''){
                 errorCode.textContent = 'Please type the password.';
+                errorCode.style.color = 'red';
             } else if (inputUsername.value === username && inputPassword.value !== password){
                 errorCode.textContent = 'Incorrect password.';
+                errorCode.style.color = 'red';
             } else{
                 errorCode.textContent = 'No credentials found.';
+                errorCode.style.color = 'red';
             };
         };
 
@@ -192,5 +196,4 @@
     </script>
     
 </body>
-
 </html>

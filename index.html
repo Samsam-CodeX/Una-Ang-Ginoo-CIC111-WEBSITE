@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: system-ui;
+            box-sizing: border-box;
+        }
+        
+        #loginContainer{
+            width: 100vw;
+            height: 100vh;
+            box-shadow: 2px 2px 5px grey, -1px -1px 5px grey;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url("pics/tcgc.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+        #loginFade{
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(3, 73, 15, 0.95) 10%, rgba(95, 51, 5, 0.5));
+        }
+
+        #inputsHolder{
+            width: 400px;
+            height: 500px;
+            background: rgb(235, 245, 233, 0.45);
+            box-shadow: 0 0 5px grey;
+            border-radius: 25px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-name: Fade;
+            animation-duration: 2s;
+            animation-timing-function: ease;
+        }
+        #inputsHolder input{
+            width: 85%;
+            height: 45px;
+            padding: 0 32px 0;
+            background: rgba(244, 244, 184, 0.507);
+            border: 1px solid black;
+            border-radius: 15px;
+        }
+        #inputsHolder input:focus, button#login:focus{
+            outline: none;
+        }
+        button#login{
+            width: 100%;
+            height: 45px;
+            background: linear-gradient(to right, rgba(155, 208, 112, 0.723), rgba(172, 223, 117, 0.564));
+            border: 1px solid black;
+            border-radius: 15px;
+        }
+        #inputsHolder h1{
+            position: relative;
+            top: 20px;
+        }
+        #username{
+            height: 45px;
+            position: relative;
+            top: 40px;
+        }
+        #password{
+            height: 45px;
+            position: relative;
+            top: 45px;
+        }
+        div#login{
+            width: 85%;
+            text-align: left;
+            color: red;
+            position: relative;
+            top: 60px;
+        }
+        #input-icon{
+            position: relative;
+            top: -34px;
+            left: -150px;
+        }
+
+        @keyframes Fade{
+            from{
+                opacity: 0%;
+                top: 40%;
+            }
+            to{
+                opacity: 100%;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="loginContainer">
+        <div id="loginFade">
+
+            <div id="inputsHolder">
+                <center>
+                    <div style="position: relative; top: 15px;">
+                        <img src="pics/tcgcLogo01.png" width="80px" style="padding: 0 7px 0;">
+                        <img src="pics/tangubCityLogo.png" width="80px" style="padding: 0 7px 0;">    
+                    </div>
+
+                    <h1>User Login</h1>
+
+                    <div>
+                        
+                        <div id="username">
+                            <input class="username" type="text" placeholder="Username" style="display: block;">
+                            <i class="fa-solid fa-user" id="input-icon"></i>
+                        </div>
+                        
+                        <div id="password">
+                            <input class="password" type="password"  placeholder="Password" style="display: block;">
+                            <i class="fa-solid fa-key" id="input-icon"></i>
+                        </div>
+                        
+                        <div id="login">
+                            <p id="errorCode" style="margin-left: 10px;"></p>
+                            <button id="login"><h3>Login</h3></button>
+                        </div>
+
+                        
+                        <div>
+                            <button style="position: relative; top: 65px; color: rgb(64, 64, 64); 
+                            background: none; border: none;">Forgot Username/Password?</button>
+                        </div>
+                        <div>
+                            <button style="position: relative; top: 150px; color: rgb(64, 64, 64);
+                            background: none; border: none;">Create Your Account</button>
+                        </div>
+                    </div>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const username = 'user';
+        const password = '123';
+
+        const inputUsername = document.querySelector('.username');
+        const inputPassword = document.querySelector('.password');
+        const errorCode = document.getElementById('errorCode');
+        const logIn = document.getElementById('login')
+
+        inputUsername.addEventListener('keydown', (event) => {
+            if(event.key == 'Enter') {
+                if(inputPassword.value == '') inputPassword.focus();
+                else login();
+            };
+        });
+        inputPassword.addEventListener('keydown', (event) => {
+            if(event.key == 'Enter') login();
+        });
+        logIn.addEventListener('click', (e) => {
+            login();
+        });
+
+        function login(){
+            if(inputUsername.value === username && inputPassword.value === password){
+                errorCode.textContent = 'Logging in...'
+                errorCode.style.color = 'green'
+                setTimeout(() => {
+                    document.location.href = 'main.html';
+                }, 2000);
+            } else if (inputUsername.value === ''){
+                errorCode.textContent = 'Please provide username.';
+            } else if (inputPassword.value === ''){
+                errorCode.textContent = 'Please type the password.';
+            } else if (inputUsername.value === username && inputPassword.value !== password){
+                errorCode.textContent = 'Incorrect password.';
+            } else{
+                errorCode.textContent = 'No credentials found.';
+            };
+        };
+
+
+    </script>
+    
+</body>
+</html>

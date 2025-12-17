@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faith and Technology Page</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div id="FT" class="page active"> 
+        <div id="content">
+            <div id="intro">
+                <h1>
+                    Digital Sanctuary
+                </h1>
+                <p>
+                    This page is dedicated to demonstrating how technology can be purposefully utilized to spread positivity, 
+                    nurture spiritual messages, and foster meaningful connection within the digital landscape.
+                </p>
+            </div>
+            
+            <div id="pwall">
+                <h2>Prayer Wall</h2>
+                <p>
+                    Share your positive intention or prayer anonymously below. <br>Let's use technology to foster a spiritual connection.
+                </p>
+                
+                <input type="text" id="prayer-input" placeholder="Type your prayer here..." maxlength="100">
+                <button id="post-btn">Share Prayer</button>
+    
+                <ul id="prayers-list">
+                    <li class="prayer-item">"May my steps today be filled with purpose and guided by peace."</li>
+                    <li class="prayer-item">"May I find the strength to forgive, and the wisdom to learn from my mistakes."</li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            document.getElementById('post-btn').addEventListener('click', function() {
+                const input = document.getElementById('prayer-input');
+                const list = document.getElementById('prayers-list');
+                const intentionText = input.value.trim();
+
+                if (intentionText) {
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('prayer-item');
+                    listItem.textContent = `"${intentionText}"`; 
+                    
+                    listItem.style.opacity = 0;
+                    
+                    list.prepend(listItem); 
+                    input.value = '';
+
+                    setTimeout(() => {
+                        listItem.style.transition = 'opacity 0.5s ease-in';
+                        listItem.style.opacity = 1;
+                    }, 10);
+                } else {
+                    alert('Please enter a message before sharing your prayer.');
+                }
+            });
+        </script> 
+    </div>
+</body>
+</html>

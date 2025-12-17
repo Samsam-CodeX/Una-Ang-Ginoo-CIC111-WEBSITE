@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Service</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div id="CS" class="page active">
+        <center>
+            <section id="sec1">
+                <h4>
+                    LUX MUNDIS IN ACTION: A HEART FOR THE FIRE VICTIMS OF MANTIC
+                </h4>
+                <P>
+                    &nbsp &nbsp &nbsp &nbsp A little act of kindness from our fellow Lux Mundis, the compassionate students, faculty and staff of Tangub City 
+                    Global College who, along with the generous hearts of other donors, came together to extend help and hope to the 
+                    victims of the recent fire in Mantic, Tangub City, Misamis Occidental.<br><br>
+                    &nbsp &nbsp &nbsp &nbsp Through a collective effort rooted in empathy 
+                    and solidarity, various donations were gathered and turned over to the affected families. These were thoughtfully 
+                    distributed by the Supreme Student Council of Tangub City Global College, who served not just as student leaders, 
+                    but as instruments of service and compassion in this time of need.<br><br>
+                    &nbsp &nbsp &nbsp &nbsp To everyone who contributed in any way, whether through goods, time, or prayers. your kindness has made a difference. 
+                    May this gesture remind us all that no act of kindness is ever too small, and that in unity, we can spark light even in the darkest of times.
+                </P>
+                <div id="gallery">
+                    <img height="100%" src="../pics/comservice/cs1.jpg">
+                    <img height="100%" src="../pics/comservice/cs2.jpg">
+                    <img height="100%" src="../pics/comservice/cs3.jpg">
+                    <img height="100%" src="../pics/comservice/cs4.jpg">
+
+                    <img height="100%" src="../pics/comservice/cs1.jpg">
+                    <img height="100%" src="../pics/comservice/cs2.jpg">
+                    <img height="100%" src="../pics/comservice/cs3.jpg">
+                    <img height="100%" src="../pics/comservice/cs4.jpg">
+                </div>
+                <script>
+                    setTimeout(() => {
+                    const gallery = document.getElementById('gallery');
+                    const scrollSpeed = 1;
+                    let lastScroll = 0;
+
+                    setInterval(() => {
+                        lastScroll = gallery.scrollLeft;
+                        gallery.scrollLeft += scrollSpeed;
+                        if(gallery.scrollLeft >= gallery.scrollWidth / 2){
+                            gallery.scrollLeft = 0;
+                        }
+                    }, 17)
+
+                }, 10);
+
+                setTimeout(() => {
+                    const gallery = document.getElementById('gallery2');
+                    const scrollSpeed = 1;
+                    let lastScroll = 0;
+
+                    setInterval(() => {
+                        lastScroll = gallery.scrollLeft;
+                        gallery.scrollLeft += scrollSpeed;
+                        if(gallery.scrollLeft >= gallery.scrollWidth / 2){
+                            gallery.scrollLeft = 0;
+                        }
+                    }, 17)
+
+                }, 10);
+                </script>
+            </section>
+            <section id="sec2">
+                <h4>
+                    TCGC Cadets Take the Streets
+                </h4>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp The TCGC ROTC Unit is actively demonstrating its commitment to civic responsibility 
+                    by initiating a comprehensive Clean-up Drive across the city streets. This significant undertaking 
+                    directly supports the local community's goal of maintaining exceptional public cleanliness, ultimately 
+                    contributing to a healthier, more appealing, and harmonious living environment for all citizens.
+                </p>
+                <div id="gallery2">
+                    <img height="100%" src="../pics/rotc/pic1.jpg">
+                    <img height="100%" src="../pics/rotc/pic2.jpg">
+                    <img height="100%" src="../pics/rotc/pic3.jpg">
+                    <img height="100%" src="../pics/rotc/pic4.jpg">
+                    <img height="100%" src="../pics/rotc/pic5.jpg">
+
+                    <img height="100%" src="../pics/rotc/pic1.jpg">
+                    <img height="100%" src="../pics/rotc/pic2.jpg">
+                    <img height="100%" src="../pics/rotc/pic3.jpg">
+                    <img height="100%" src="../pics/rotc/pic4.jpg">
+                    <img height="100%" src="../pics/rotc/pic5.jpg">
+                </div>
+            </section>
+        </center>
+    </div>
+</body>
+</html>

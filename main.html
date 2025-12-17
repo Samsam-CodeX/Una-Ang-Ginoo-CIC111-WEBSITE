@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una ang Ginoo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root{
+            --primaryDark: rgb(40, 42, 53);
+            --secondaryDark: rgb(67, 70, 87);
+            --primaryColor: rgb(7, 88, 7);
+            --secondaryColor: rgb(207, 125, 9);
+            --white: whitesmoke;
+            --mainGradient: linear-gradient(135deg, rgba(6, 104, 32, 0.9) 20%, rgba(119, 66, 10, 0.6));
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: system-ui;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 100vh;
+            background-color: var(--white);
+        }
+
+        /*Header Layout*/
+        #header{
+            height: 100px;
+            background-image: url('pics/tcgc.jpg');
+            background-size: cover;
+            background-position: 0% 65%;
+        }
+        #backgroundFade{
+            width: 100%;
+            height: 100%;
+            padding: 0 15px 0;
+            background: var(--mainGradient);
+        }
+        #header div.HeadDiv{
+            height: 100px;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        #titleHeadings{
+            width: 500px;
+            flex-grow: 1;
+            display: block;
+        }
+
+
+
+        #unaAngGinoo{
+            animation-name: slide-up;
+            animation-timing-function: ease-in-out;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+        }
+        #lightOfTheWorld{
+            animation-name: slide-right;
+            animation-timing-function: ease-in-out;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes slide-right{
+            0%{
+                transform: translateX(-90%);
+            }
+            10%{
+                transform: translateX(0);
+            }
+            100%{
+                transform: translateX(0);
+            }
+        }
+        @keyframes slide-up{
+            0%{
+                transform: translateY(100%);
+            }
+            10%{
+                transform: translateY(100%);
+            }
+            16%{
+                transform: translateY(0);
+            }
+            100%{
+                transform: translateY(0);
+            }
+        }
+        
+        
+        nav{
+            width: 100%;
+            height: 40px;
+            display: block;
+            background-color: var(--primaryDark);
+        }
+        nav ul{
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        #navIconContainer{
+            display: flex;
+            align-items: center;
+            background-color: var(--primaryDark);
+            height: 40px;
+        }
+        #navIconContainer:hover{
+            background-color: black;
+        }
+        #navIcon{
+            width: 65px;
+            display: inline-block;
+            transition: transform 1.3s ease;
+        }
+        #navIcon.rotate{
+            transform: rotateZ(360deg);
+        }
+        #navContainer{
+            width: 100%;
+            height: 40px;
+            overflow: hidden;
+        }
+        #navContent{
+            display: flex;
+            height: 100%;
+            margin: 0;
+            white-space: nowrap;
+            transform: translateX(-100%);
+            pointer-events: none;
+            transition: transform 1.3s ease;
+        }
+        #navContent.appear{
+            transform: translateX(0%);
+            pointer-events: all;
+        }
+        nav li{
+            text-align: center;
+            min-width: 65px;
+            height: 100%;
+            padding: 0 10px 0;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            overflow-x: hidden;
+            background-color: var(--primaryDark);
+        }
+        #navContent .active{
+            background-color: rgba(4, 170, 109);
+        }
+        nav li a{
+            pointer-events: none;
+        }
+        nav li:hover{
+            background-color: black;
+        }
+        nav li a:visited, nav li a:link{
+            color: white;
+            text-decoration: none;
+        }
+
+        #mainContent{
+            min-height: 100%;
+            background-color: var(--white);
+        }
+
+        #footer{
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--secondaryDark);
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div id="backgroundFade">
+
+            <div class="HeadDiv">
+                <div id="imgHolder"><img id="tcgc" src="pics/tcgcLogo01.png" height="100%"></div>
+                <div id="titleHeadings" style="overflow: hidden; padding-left: 10px; font-size: larger;">
+                    <div style="overflow: hidden; margin: 5px 0 0 20px; width: 400px;">
+                        <h1 id="unaAngGinoo" style="font-family: Times New Roman; color: var(--secondaryColor);">
+                            Una ang Ginoo
+                        </h1>
+                    </div>
+                    <div style="overflow: hidden; margin: 0 0 0 20px; width: 400px;">
+                        <h1 id="lightOfTheWorld" style="font-family: Times New Roman; color: white;">
+                            Light of the World
+                        </h1>
+                    </div>
+                </div>
+                <div id="imgHolder"><img id="tangub" src="pics/tangubCityLogo.png" height="100%"></div>
+            </div>
+
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <div id="navIconContainer">
+                <i id="navIcon" class="fa-solid fa-list" style="margin-right: 5px;"></i>
+            </div>
+
+            <div id="navContainer">
+                <div id="navContent" class="">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li class=""><a href="#">Reflection</a></li>
+                    <li class=""><a href="#">Community Service</a></li>
+                    <li class=""><a href="#">Portfolio</a></li>
+                    <li class=""><a href="#">Educational</a></li>
+                    <li class=""><a href="#">Faith & Technology</a></li>
+                </div>
+            </div>
+        </ul>
+    </nav>
+
+
+
+
+    <div id="home" class="page active">
+        <center>
+            <section id="sec1">
+                <h2>
+                    Una ang Ginoo
+                </h2>
+                <p>
+                    The motto "Una ang Ginoo" is the core principle of Tangub City, meaning "God First," 
+                    which guides all city government decisions and community life, establishing 
+                    a moral and spiritual foundation for governance based on integrity and service.
+                </p>
+            </section>
+    
+            <section id="sec2">
+                <h2>
+                    Light of the World
+                </h2>
+                <p>
+                    The phrase "The Light of the World" in Tangub City Global College (TCGC) 
+                    is the institution's core aspiration to produce God-centered, globally competitive 
+                    graduates who will act as beacons of integrity, compassion, and excellence 
+                    by using their knowledge to serve their communities and positively impact the world.
+                </p>
+            </section>
+        </center>
+    </div>
+
+
+
+
+
+
+    <div id="PR" class="page">
+        <header>
+            <h1>My Personal Reflection</h1>
+            <p>Faith | Integrity | Responsible Digital Citizenship</p>
+        </header>
+        <section>
+            <h2>I. Faith</h2>
+            <p id="verse">
+                <i>“I can do all things through Christ who strengthens me.” - <b>Philippians 4:13</b></i><br><br>
+            </p>
+            <p>
+                My faith is my strength when life feels impossible. When I say "I can do all things," it is a promise 
+                rooted in Christ, meaning I have the power for the next hard step, relying not on my own willpower, 
+                but on the feeling of being completely supported by God. I know I don't have to carry the whole heavy 
+                load alone. This quiet certainty lets me face confusing moments, trusting that the strength I need will 
+                always show up when I need it most. It is the reliable reason I keep moving forward.
+            </p>
+        </section>
+        <section>
+            <h2>II. Integrity</h2>
+            <p>
+                This strength I find in my faith is what empowers me to live with integrity. For me, integrity means 
+                the daily, consistent commitment to aligning my actions with my beliefs, even when no one is watching. 
+                As a student, this requires choosing honest effort in academics over shortcuts and being reliable to my 
+                friends. My reflection is simple: Am I taking the easy way, or the honest way? I strive to use my faith 
+                to ensure my decisions build a solid foundation of trust and respect every day.
+            </p>
+        </section>
+        <section>
+            <h2>III. Responsible Digital Citizenship</h2>
+            <p>
+                Because I must be consistent, I treat the internet just like my real-world community. 
+                Being a good digital citizen means my faith and integrity rules still apply online. Every single 
+                post, comment, or picture I share affects real people. So, I promise to use technology to build others up and 
+                to learn, not to hurt or spread bad feelings. My biggest test of integrity online is pausing to practice 
+                empathy before I hit 'send,' making sure my actions reflect the honest, positive person I aim to be.
+            </p>
+        </section>
+    </div>
+
+
+
+
+
+    <div id="CS" class="page">
+        <center>
+            <section id="sec1">
+                <h4>
+                    LUX MUNDIS IN ACTION: A HEART FOR THE FIRE VICTIMS OF MANTIC
+                </h4>
+                <P>
+                    &nbsp &nbsp &nbsp &nbsp A little act of kindness from our fellow Lux Mundis, the compassionate students, faculty and staff of Tangub City 
+                    Global College who, along with the generous hearts of other donors, came together to extend help and hope to the 
+                    victims of the recent fire in Mantic, Tangub City, Misamis Occidental.<br><br>
+                    &nbsp &nbsp &nbsp &nbsp Through a collective effort rooted in empathy 
+                    and solidarity, various donations were gathered and turned over to the affected families. These were thoughtfully 
+                    distributed by the Supreme Student Council of Tangub City Global College, who served not just as student leaders, 
+                    but as instruments of service and compassion in this time of need.<br><br>
+                    &nbsp &nbsp &nbsp &nbsp To everyone who contributed in any way, whether through goods, time, or prayers. your kindness has made a difference. 
+                    May this gesture remind us all that no act of kindness is ever too small, and that in unity, we can spark light even in the darkest of times.
+                </P>
+                <div id="gallery">
+                    <img height="100%" src="../pics/comservice/cs1.jpg">
+                    <img height="100%" src="../pics/comservice/cs2.jpg">
+                    <img height="100%" src="../pics/comservice/cs3.jpg">
+                    <img height="100%" src="../pics/comservice/cs4.jpg">
+
+                    <img height="100%" src="../pics/comservice/cs1.jpg">
+                    <img height="100%" src="../pics/comservice/cs2.jpg">
+                    <img height="100%" src="../pics/comservice/cs3.jpg">
+                    <img height="100%" src="../pics/comservice/cs4.jpg">
+                </div>
+            </section>
+            <section id="sec2">
+                <h4>
+                    TCGC Cadets Take the Streets
+                </h4>
+                <p>
+                    &nbsp &nbsp &nbsp &nbsp The TCGC ROTC Unit is actively demonstrating its commitment to civic responsibility 
+                    by initiating a comprehensive Clean-up Drive across the city streets. This significant undertaking 
+                    directly supports the local community's goal of maintaining exceptional public cleanliness, ultimately 
+                    contributing to a healthier, more appealing, and harmonious living environment for all citizens.
+                </p>
+                <div id="gallery2">
+                    <img height="100%" src="../pics/rotc/pic1.jpg">
+                    <img height="100%" src="../pics/rotc/pic2.jpg">
+                    <img height="100%" src="../pics/rotc/pic3.jpg">
+                    <img height="100%" src="../pics/rotc/pic4.jpg">
+                    <img height="100%" src="../pics/rotc/pic5.jpg">
+
+                    <img height="100%" src="../pics/rotc/pic1.jpg">
+                    <img height="100%" src="../pics/rotc/pic2.jpg">
+                    <img height="100%" src="../pics/rotc/pic3.jpg">
+                    <img height="100%" src="../pics/rotc/pic4.jpg">
+                    <img height="100%" src="../pics/rotc/pic5.jpg">
+                </div>
+            </section>
+        </center>
+        <script>
+            setTimeout(() => {
+                const gallery = document.getElementById('gallery');
+                const scrollSpeed = 1;
+                let lastScroll = 0;
+
+                setInterval(() => {
+                    lastScroll = gallery.scrollLeft;
+                    gallery.scrollLeft += scrollSpeed;
+                    if(gallery.scrollLeft >= gallery.scrollWidth / 2){
+                        gallery.scrollLeft = 0;
+                    }
+                }, 17)
+
+            }, 10);
+
+            setTimeout(() => {
+                const gallery = document.getElementById('gallery2');
+                const scrollSpeed = 1;
+                let lastScroll = 0;
+
+                setInterval(() => {
+                    lastScroll = gallery.scrollLeft;
+                    gallery.scrollLeft += scrollSpeed;
+                    if(gallery.scrollLeft >= gallery.scrollWidth / 2){
+                        gallery.scrollLeft = 0;
+                    }
+                }, 17)
+
+            }, 10);
+        </script>
+    </div>
+
+
+
+
+
+
+    <div id="PF" class="page">
+        <div id="head">
+            <img src="../pics/me.jpg" height="200">
+            <p>
+                &nbsp &nbsp &nbsp &nbsp Hello, my name is <b>Andrew Sambulan</b>, the developer of this website. I am really passionate
+                about coding, making the things that only exist in my mind. Most especially, I really like making games and developing stuffs
+                the reason why I pursued BSCS.
+            </p>
+        </div>
+
+        <section>
+            <h1 style="font-family: 'Goergia'; text-align: center;">
+                Educational Background
+            </h1>
+            <div style="display: flex;">
+                <h4 style="width: 250px; flex-shrink: 0;">
+                    2025 - Present 
+                    <br>Tangub City Global College
+                </h4>
+                <div>
+                    <h4 id="educBackground">
+                        Bachelor of Science in Computer Science
+                    </h4>
+                    <p style="margin-bottom: 20px;">
+                        Here I am today, currently at 1 year level college student taking up BSCS pursuing
+                        my dream of becoming a programmer.
+                    </p>
+                </div>
+            </div>
+            <div style="display: flex;">
+                <h4 style="width: 250px; flex-shrink: 0;">
+                    2024 - 2025
+                    <br>Silangit National High School
+                </h4>
+                <div>
+                    <h4 id="educBackground">
+                        With High Honor
+                    </h4>
+                    <p style="margin-bottom: 20px;">
+                        I am a consistent honor student in Silangit National High School and have taken GAS track
+                        during my Senior High School. Although this is somewhat far from my passion of coding, I still
+                        studied coding separate from school and have to do it myself
+                    </p>
+                </div>
+            </div>
+            <div style="display: flex;">
+                <h4 style="width: 250px; flex-shrink: 0;">
+                    2018 - 2019
+                    <br>Tangub City Central School
+                </h4>
+                <div>
+                    <h4 id="educBackground">
+                        With High Honor
+                    </h4>
+                    <p>
+                        I am a consistent honor student in Tangub City Central School.
+                        During this time I still have no idea that in the future programming
+                        will be my passion.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h1 style="font-family: 'Goergia'; text-align: center;">
+                My Personal Coding Projects
+            </h1>
+            <div style="display: flex;">
+                <h4 style="width: 250px; flex-shrink: 0;">
+                    Mario Game
+                </h4>
+                <div>
+                    <p>
+                        This is a platformer game, one of my very first projects. I have stopped coding this because
+                        there are other things that needs to be done first, especially school. But still <Img:sizes></Img:sizes> decided to feature it here. 
+                        Just click on Mario to play and use the key A, W, and D to move.
+                    </p>
+                </div>
+            </div>
+            <div style="overflow: hidden;">
+                <center>
+                    <iframe src="Platformer/index.html" width="800px" height="500px"></iframe>
+                </center>
+            </div>
+
+            <br><hr><br>
+            <div style="display: flex;">
+                <h4 style="width: 250px; flex-shrink: 0;">
+                    Number to Text Converter
+                </h4>
+                <div>
+                    <p>
+                        This is the MOST accurate Number to Text Converter personally coded by myself.
+                        I was coding this project during free time between classes. I made this thing beacuse of a coding
+                        challenge with my classmate. This program supports very large numbers and inlcuding decimals as well
+                    </p>
+                </div>
+            </div>
+            <div style="overflow: hidden;">
+                <center>
+                    <iframe src="Number Converter/index.html" width="800px" height="500px"></iframe>
+                </center>
+            </div>
+        </section>
+    </div>
+
+
+
+
+
+
+    <div id="ED" class="page">
+        <header>
+            <h1>Lux Mundi: Becoming a True Light of the World</h1>
+            <p>Living the Core Values of TCGC College: Integrity, Compassion, Excellence</p>
+        </header>
+
+        <section id="intro">
+            <h2>The Call to Be Light</h2>
+            <p>The title Lux Mundi is a promise—a commitment to bring clarity, warmth, and ethical guidance to every sphere of life. To truly embody this spirit, we must integrate the foundational values instilled by TCGC College into our daily habits and interactions. This guide offers practical steps to make these values shine.</p>
+        </section>
+
+        <section id="values">
+            <h2>Putting TCGC Core Values Into Action</h2>
+            <p>Our three core values are not just statements; they are action guides. Here is how we apply them to shine brightly:</p>
+
+            <div class="value-block">
+                <h3>Core Value 1: Integrity</h3>
+                <p><strong>Definition:</strong> The adherence to moral and ethical principles; the state of being whole and undivided in character.</p>
+                <ol>
+                    <li><strong>Own Your Mistakes:</strong> When something goes wrong, immediately take responsibility. Integrity means admitting fault and focusing on repair, not denial.</li>
+                    <li><strong>Uphold Academic Honesty:</strong> Always cite your sources, never plagiarize, and complete tests and assignments based solely on your own work. Your diploma should reflect your true effort.</li>
+                    <li><strong>Follow Through:</strong> Do what you said you would do, even when it’s inconvenient or no one is watching. Your private actions must align with your public promises.</li>
+                </ol>
+            </div>
+
+            <div class="value-block">
+                <h3>Core Value 2: Compassion</h3>
+                <p><strong>Definition:</strong> Sympathetic pity and concern for the sufferings or misfortunes of others, combined with a desire to help.</p>
+                <ol>
+                    <li><strong>Listen Actively:</strong> When a classmate or peer shares a struggle, put away distractions and listen without interrupting or preparing your own response. Empathy begins with attention.</li>
+                    <li><strong>Practice Online Kindness:</strong> Avoid harsh criticism, ridicule, or dismissive comments in social media or group chats. Assume the best intent and respond with patience.</li>
+                    <li><strong>Be an Inclusive Presence:</strong> Actively seek out those who are marginalized or quiet. A truly compassionate environment ensures that everyone feels seen and valued.</li>
+                </ol>
+            </div>
+
+            <div class="value-block">
+                <h3>Core Value 3: Excellence</h3>
+                <p><strong>Definition:</strong> The quality of being outstanding or extremely good; striving for the highest possible standards in all endeavors.</p>
+                <ol>
+                    <li><strong>Focus on Effort, Not Just Grade:</strong> Excellence is the continuous commitment to giving your best effort in every subject and project, regardless of the difficulty.</li>
+                    <li><strong>Embrace Constructive Criticism:</strong> View feedback from instructors and peers as a tool for growth, not a personal attack. Use it to continuously refine your skills and character.</li>
+                    <li><strong>Go Beyond the Minimum:</strong> Look for opportunities to enhance your learning, whether through extra reading, joining academic clubs, or mentoring others. A light that grows brighter through constant learning.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="conclusion">
+            <h2>Sustaining the Light</h2>
+            <p>Being a Lux Mundi is a constant choice. It requires daily commitment to reflection and action, ensuring that the light you carry is steady, warm, and guides others toward truth and goodness. By living Integrity, Compassion, and Excellence every day, you fulfill the highest purpose of the TCGC College community.</p>
+        </section>
+
+        <footer>
+            Prepared for the TCGC Community | Shine brightly, always.
+        </footer>
+    </div>
+
+
+
+
+
+
+    <div id="FT" class="page"> 
+        <div id="content">
+            <div id="intro">
+                <h1>
+                    Digital Sanctuary
+                </h1>
+                <p>
+                    This page is dedicated to demonstrating how technology can be purposefully utilized to spread positivity, 
+                    nurture spiritual messages, and foster meaningful connection within the digital landscape.
+                </p>
+            </div>
+            
+            <div id="pwall">
+                <h2>Prayer Wall</h2>
+                <p>
+                    Share your positive intention or prayer anonymously below. <br>Let's use technology to foster a spiritual connection.
+                </p>
+                
+                <input type="text" id="prayer-input" placeholder="Type your prayer here..." maxlength="100">
+                <button id="post-btn">Share Prayer</button>
+    
+                <ul id="prayers-list">
+                    <li class="prayer-item">"May my steps today be filled with purpose and guided by peace."</li>
+                    <li class="prayer-item">"May I find the strength to forgive, and the wisdom to learn from my mistakes."</li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            document.getElementById('post-btn').addEventListener('click', function() {
+                const input = document.getElementById('prayer-input');
+                const list = document.getElementById('prayers-list');
+                const intentionText = input.value.trim();
+
+                if (intentionText) {
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('prayer-item');
+                    listItem.textContent = `"${intentionText}"`; 
+                    
+                    listItem.style.opacity = 0;
+                    
+                    list.prepend(listItem); 
+                    input.value = '';
+
+                    setTimeout(() => {
+                        listItem.style.transition = 'opacity 0.5s ease-in';
+                        listItem.style.opacity = 1;
+                    }, 10);
+                } else {
+                    alert('Please enter a message before sharing your prayer.');
+                }
+            });
+        </script> 
+    </div>
+
+    <footer id="footer">
+        <p>© 2025 Andrew Sambulan</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

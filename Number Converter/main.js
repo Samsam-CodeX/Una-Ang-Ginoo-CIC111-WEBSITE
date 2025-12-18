@@ -139,7 +139,7 @@ function convert() {
     
     if(floatValue.length == 0) floatOutput = '';
     else if (decimalPlaceValue[placeValue.toString()]) floatOutput = floatOutput + ' ' + decimalPlaceValue[placeValue.toString()];
-    else floatOutput = 'a ridiculus amount of decimals';
+    else floatOutput = 'a ridiculous amount of decimals';
   };
   
   document.getElementById('output').textContent = finalize(integerOutput, floatOutput);

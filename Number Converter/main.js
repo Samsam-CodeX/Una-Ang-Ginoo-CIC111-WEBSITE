@@ -1,5 +1,3 @@
-console.log(window);
-
 const numLib = {
   1: 'one',
   2: 'two',
@@ -114,7 +112,7 @@ function convert() {
       floatValue = floatValue.slice(1);
       zeroPrefixes ++;
     };
-    
+
     if (floatValue.length <= 3) floatOutput = convertCell(floatValue);
     else {
       const cells = group(floatValue); // returns Array
@@ -139,13 +137,13 @@ function convert() {
     
     const placeValue = floatValue.length + zeroPrefixes;
     
-    if (decimalPlaceValue[placeValue.toString()]) floatOutput = floatOutput + ' ' + decimalPlaceValue[placeValue.toString()];
+    if(floatValue.length == 0) floatOutput = '';
+    else if (decimalPlaceValue[placeValue.toString()]) floatOutput = floatOutput + ' ' + decimalPlaceValue[placeValue.toString()];
     else floatOutput = 'a ridiculus amount of decimals';
   };
   
   document.getElementById('output').textContent = finalize(integerOutput, floatOutput);
   
-  console.log(floatOutput, integerOutput)
   function finalize (integers, decimals) {
     let output = '';
     if (integers && decimals) output = integers + ' and ' + decimals;
